@@ -47,6 +47,12 @@ main {
   margin: 0 auto;
 }
 
+button,
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 @keyframes introduction-animation {
   0% {
     transform: scale(0.9);
