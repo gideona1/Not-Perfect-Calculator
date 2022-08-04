@@ -81,6 +81,10 @@ main {
 }
 
 .calc-container:focus-within {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px, var(--calc-accent) 0px 30px 60px -30px;
+}
+
+.calc-container:focus-within {
   border: var(--calc-border-width) solid var(--calc-accent);
 }
 

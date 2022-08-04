@@ -1,6 +1,8 @@
 /**
  * TODO: Write code comments
- * TODO: Limit to 8 or 16 point rounding
+ * DONE: Limit to 8 or 16 point rounding
+ * DONE: Precise decimal arithmetic
+ * TODO: Clear entry button
  *  */
 
 let firstNumber = undefined; // Entry Number
@@ -13,6 +15,10 @@ let resetHistoryOnInput = false;
 
 const input = document.getElementById("calc-input"); // stores input element in variable
 const historyDisplay = document.getElementById("calc-history");
+
+Number.prototype.fixed = function () {
+  return parseFloat(this.toPrecision(14));
+};
 
 /**
  *
@@ -36,7 +42,7 @@ const updateInput = (value, append, ignoreReset) => {
   }
 
   if (append) {
-    input.value += value;
+    if (input.value.replace(".", "").length < 9) input.value += value;
   } else {
     input.value = value;
   }
@@ -59,13 +65,13 @@ const operatorToSymbol = (operator) => {
 const changeOperation = (button, requestOperator) => {
   if (!replaceOnInput || resetHistoryOnInput) {
     if (firstNumber !== undefined && secondNumber === undefined) {
-      secondNumber = parseFloat(input.value);
+      secondNumber = parseFloat(input.value).fixed();
       firstNumber = calculate();
       secondNumber = undefined;
     }
 
     if (firstNumber === undefined && secondNumber === undefined) {
-      firstNumber = parseFloat(input.value);
+      firstNumber = parseFloat(input.value).fixed();
     }
   }
 
@@ -88,13 +94,13 @@ const resetOperatorButton = () => {
 const calculate = () => {
   switch (operator) {
     case 0:
-      return firstNumber + secondNumber;
+      return (firstNumber + secondNumber).fixed();
     case 1:
-      return firstNumber - secondNumber;
+      return (firstNumber - secondNumber).fixed();
     case 2:
-      return firstNumber * secondNumber;
+      return (firstNumber * secondNumber).fixed();
     case 3:
-      return firstNumber / secondNumber;
+      return (firstNumber / secondNumber).fixed();
   }
 };
 
@@ -135,15 +141,14 @@ const includeNegative = () => {
   }
 };
 
-// Not perfect
 const getPercentage = () => {
-  updateInput(parseFloat(input.value) / 100, false);
+  updateInput((parseFloat(input.value) / 100).fixed(), false);
 };
 
 const equal = () => {
   if (firstNumber !== undefined) {
     if (secondNumber === undefined) {
-      secondNumber = parseFloat(input.value);
+      secondNumber = parseFloat(input.value).fixed();
     }
     updateInput(calculate(), false, true);
     updateHistory();
