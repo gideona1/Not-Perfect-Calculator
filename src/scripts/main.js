@@ -1,3 +1,8 @@
+/**
+ * TODO: Write code comments
+ * TODO: Limit to 8 or 16 point rounding
+ *  */
+
 let firstNumber = undefined; // Entry Number
 let secondNumber = undefined;
 let answer = undefined;
