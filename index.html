@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <script src="./src/scripts/main.js" defer></script>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="calc-container">
+        <div class="calc-row calc-input">
+          <div id="calc-history" class="calc-history">Start inputing numbers.</div>
+          <input id="calc-input" type="text" readonly placeholder="0" value="0" />
+        </div>
+        <div class="calc-row calc-button-grid grid-4">
+          <button onclick="updateInput(0,false)" class="secondary">C</button>
+          <button onclick="includeNegative()" class="secondary">+/-</button>
+          <button onclick="getPercentage()" class="secondary">%</button>
+          <button onclick="changeOperation(this, 3)" class="accent-f">÷</button>
+        </div>
+        <div class="calc-row calc-button-grid grid-4">
+          <button onclick="updateInput(this.textContent,true)">7</button>
+          <button onclick="updateInput(this.textContent,true)">8</button>
+          <button onclick="updateInput(this.textContent,true)">9</button>
+          <button onclick="changeOperation(this, 2)" class="accent-f">×</button>
+        </div>
+        <div class="calc-row calc-button-grid grid-4">
+          <button onclick="updateInput(this.textContent,true)">4</button>
+          <button onclick="updateInput(this.textContent,true)">5</button>
+          <button onclick="updateInput(this.textContent,true)">6</button>
+          <button onclick="changeOperation(this, 1)" class="accent-f">-</button>
+        </div>
+        <div class="calc-row calc-button-grid grid-4">
+          <button onclick="updateInput(this.textContent,true)">1</button>
+          <button onclick="updateInput(this.textContent,true)">2</button>
+          <button onclick="updateInput(this.textContent,true)">3</button>
+          <button onclick="changeOperation(this, 0)" class="accent-f">+</button>
+        </div>
+        <div class="calc-row calc-button-grid grid-3">
+          <button onclick="addZero()" style="border-radius: 0px 0px 0px 8px">0</button>
+          <button onclick="addDecimal()">.</button>
+          <button onclick="equal()" style="border-radius: 0px 0px 8px 0px" class="accent-f">=</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
