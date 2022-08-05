@@ -70,6 +70,7 @@ input {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   height: 95%;
+  max-height: 800px;
   width: 90%;
   border: var(--calc-border-width) solid var(--calc-outline);
   border-radius: 8px;
