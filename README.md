@@ -1,4 +1,4 @@
-# Not Perfect Calculator
+# Not Perfect Calculator (Maybe Perfect)
 Definitely not a perfect calculator.   
 Coded with HTML, CSS, JavaScript.  
   
