@@ -22,8 +22,8 @@
         </div>
         <div class="calc-row calc-button-grid grid-4">
           <button onclick="updateInput(0,false)" class="secondary">C</button>
+          <button onclick="clearAllEntry()" class="secondary">CE</button>
           <button onclick="includeNegative()" class="secondary">+/-</button>
-          <button onclick="getPercentage()" class="secondary">%</button>
           <button onclick="changeOperation(this, 3)" class="accent-f">÷</button>
         </div>
         <div class="calc-row calc-button-grid grid-4">
@@ -44,9 +44,10 @@
           <button onclick="updateInput(this.textContent,true)">3</button>
           <button onclick="changeOperation(this, 0)" class="accent-f">+</button>
         </div>
-        <div class="calc-row calc-button-grid grid-3">
+        <div class="calc-row calc-button-grid grid-4">
           <button onclick="addZero()" style="border-radius: 0px 0px 0px 8px">0</button>
           <button onclick="addDecimal()">.</button>
+          <button onclick="getPercentage()" class="secondary">%</button>
           <button onclick="equal()" style="border-radius: 0px 0px 8px 0px" class="accent-f">=</button>
         </div>
       </div>

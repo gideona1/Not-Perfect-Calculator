@@ -2,7 +2,7 @@
  * TODO: Write code comments
  * DONE: Limit to 8 or 16 point rounding
  * DONE: Precise decimal arithmetic
- * TODO: Clear entry button
+ * DONE: Clear entry button
  *  */
 
 let firstNumber = undefined; // Entry Number
@@ -48,6 +48,11 @@ const updateInput = (value, append, ignoreReset) => {
   }
 };
 
+/**
+ *
+ * @param {Number} operator
+ * @returns
+ */
 const operatorToSymbol = (operator) => {
   console.log(operator);
   switch (operator) {
@@ -159,4 +164,16 @@ const equal = () => {
     firstNumber = calculate();
     // secondNumber = undefined;
   }
+};
+
+/**
+ * Clear All Entries from history and clear input.
+ */
+const clearAllEntry = () => {
+  firstNumber = undefined;
+  secondNumber = undefined;
+  operator = undefined;
+
+  updateHistory();
+  updateInput(0, false);
 };
